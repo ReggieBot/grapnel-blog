@@ -12,6 +12,7 @@ When a program allocates and frees memory repeatedly, the heap develops these "g
 
 ## How it works 
 **This is still subject to change**
+
 grapnel hooks into your program's allocator at **runtime** using `LD_PRELOAD`, intercepting every single `malloc`, `free`, and `realloc` call without modifying the target binary. These events are then passed over a lock-free ring buffer via shared memory (`mmap` + `MAP_SHARED`) to a separate visualizer process, which maps them onto a 2D spatial layout using a *Hilbert curve* and renders the result as a TUI using `notcurses`.
 
 The architecture will look something like this:
