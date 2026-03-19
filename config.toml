@@ -1,5 +1,6 @@
-base_url = "https://YOURUSERNAME.github.io/grapnel-blog"
+base_url = "https://reggiebot.github.io/grapnel-blog"
 title = "Grapnel"
+theme = "terminimal"
 compile_sass = true
 generate_feeds = true
 feed_filenames = ["rss.xml", "atom.xml"]
@@ -21,5 +22,5 @@ menu_items = [
     {name = "blog", url = "$BASE_URL"},
     {name = "tags", url = "$BASE_URL/tags"},
     {name = "archive", url = "$BASE_URL/archive"},
-    {name = "github", url = "https://github.com/YOURUSERNAME/grapnel", newtab = true},
+    {name = "github", url = "https://github.com/ReggieBot/grapnel", newtab = true},
 ]
