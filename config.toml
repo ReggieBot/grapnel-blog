@@ -1,5 +1,5 @@
 base_url = "https://reggiebot.github.io/grapnel-blog"
-title = "Grapnel"
+title = "grapnel"
 theme = "terminimal"
 compile_sass = true
 generate_feeds = true
@@ -16,7 +16,7 @@ highlight_theme = "gruvbox-dark"
 [extra]
 accent_color = "orange"
 background_color = "dark"
-logo_text = "Grapnel"
+logo_text = "grapnel"
 
 menu_items = [
     {name = "blog", url = "$BASE_URL"},
