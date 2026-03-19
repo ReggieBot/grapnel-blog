@@ -1,0 +1,25 @@
+base_url = "https://YOURUSERNAME.github.io/grapnel-blog"
+title = "Grapnel"
+compile_sass = true
+generate_feeds = true
+feed_filenames = ["rss.xml", "atom.xml"]
+
+taxonomies = [
+    {name = "tags"}
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "gruvbox-dark"
+
+[extra]
+accent_color = "orange"
+background_color = "dark"
+logo_text = "Grapnel"
+
+menu_items = [
+    {name = "blog", url = "$BASE_URL"},
+    {name = "tags", url = "$BASE_URL/tags"},
+    {name = "archive", url = "$BASE_URL/archive"},
+    {name = "github", url = "https://github.com/YOURUSERNAME/grapnel", newtab = true},
+]
