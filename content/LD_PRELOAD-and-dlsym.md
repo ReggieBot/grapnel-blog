@@ -18,6 +18,7 @@ In the last post I mentioned that I was working on the `LD_PRELOAD` hook and dea
 The most basic `malloc` interception looks something like this. This is actually what I started with
 
 ```c
+
 #define _GNU_SOURCE
 #include <dlfcn.h> 
 
@@ -65,10 +66,10 @@ static void *bootstrap_alloc(size_t size) {
     // bitwise wizardry to align the allocation to a multiple of 16. I stole this. No shame.
     size = (size + 15) & ~15;
     
-    if (bootstrap_offset + size > sizeof(bootstrap_buf))
+    if (bootstrap_offset + size > sizeof(bootstrap_buffer))
         return NULL;
         
-    void *ptr = bootstrap_buf + bootstrap_offset;
+    void *ptr = bootstrap_buffer + bootstrap_offset;
     
     // update our offset
     bootstrap_offset += size;
