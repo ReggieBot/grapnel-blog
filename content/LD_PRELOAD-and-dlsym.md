@@ -36,7 +36,7 @@ void *malloc(size_t size) {
 
 ## Why it crashes...
 
-After getting punched in the face by a segfault about a hundred times, I realized something. `dlsym` is not free. Internally, glibc's `dlsym` allocates memory to do its work. This means it calls `malloc`. Which our hook is intercepting. Which calls `dlsym`. Which calls `malloc`. See where I'm going with this? Our hook never actually resolves the `real_malloc`, because we're calling malloc again before we even get there. As you might've guessed, this pretty quickly outsizes the 8MB stack size. 
+After getting punched in the face by a segfault about a hundred times, I realized something. `dlsym` is not free. Internally, glibc's `dlsym` allocates memory to do its work. This means it calls `malloc`. Which our hook is intercepting. Which calls `dlsym`. Which calls `malloc`. See where I'm going with this? Our hook never actually resolves the `real_malloc`, because we're calling malloc again before we even get there. As you might've guessed, this pretty quickly outgrows the 8MB stack size. 
 
 Now this only bites us during initialization, the very first malloc call before we've resolved the real pointer. But that's exactly when `dlsym` needs to run, so it bites *every* time. 
 
